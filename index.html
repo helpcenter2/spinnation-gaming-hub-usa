@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpinNation Gaming Hub USA</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top, #0a001a, #000);
+}
+
+/* GOD LEVEL ANIMATED BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: conic-gradient(
+        #ff0066, #6a00ff, #00c3ff, #ffcc00, #ff0066
+    );
+    animation: rotateBG 12s linear infinite;
+    opacity: 0.12;
+    z-index: -1;
+}
+
+@keyframes rotateBG {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* HEADER */
+header {
+    padding: 40px 20px;
+    background: linear-gradient(90deg,#ff0066,#6a00ff);
+    box-shadow: 0 0 30px #ff0066;
+}
+
+.vip {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 12px;
+    background: gold;
+    color: black;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* CONTAINER */
+.container {
+    padding: 30px;
+}
+
+/* GLASS CARDS */
+.card {
+    background: rgba(255,255,255,0.06);
+    margin: 20px auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 520px;
+    border-radius: 18px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 28px;
+    background: linear-gradient(45deg,#ff0066,#ffcc00);
+    color: black;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* SLOT MACHINE */
+.slot-box {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.reel {
+    width: 75px;
+    height: 75px;
+    background: #111;
+    border: 2px solid #ffcc00;
+    border-radius: 12px;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spin {
+    animation: spinAnim 0.25s linear infinite;
+}
+
+@keyframes spinAnim {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(360deg); }
+}
+
+/* FLOAT BUTTONS */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 0 15px #25D366;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: black;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid gold;
+    display: none;
+    z-index: 999;
+    font-size: 22px;
+}
+
+/* CONFETTI */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: gold;
+    top: 0;
+    animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh) rotate(360deg); }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎰 SpinNation Gaming Hub USA 🎰</h1>
+    <div class="vip">👑 GOD LEVEL CASINO 👑</div>
+    <p>VIP Gaming • Rewards • Entertainment</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🔥 Join Facebook</h2>
+        <a class="btn" href="https://www.facebook.com/SpinNationGamingHubUSA/" target="_blank">
+            Visit Page
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>📱 WhatsApp Support</h2>
+        <a class="btn" href="https://wa.me/14244414732" target="_blank">
+            Chat Now
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>🎰 JACKPOT SLOT</h2>
+
+        <div class="slot-box">
+            <div class="reel" id="r1">🍒</div>
+            <div class="reel" id="r2">💎</div>
+            <div class="reel" id="r3">🔔</div>
+        </div>
+
+        <button class="btn" onclick="spin()">SPIN 🎲</button>
+    </div>
+
+</div>
+
+<a class="whatsapp" href="https://wa.me/14244414732" target="_blank">💬</a>
+
+<div class="popup" id="popup">🎉 JACKPOT WIN! 🎉</div>
+
+<script>
+function spin() {
+    const symbols = ["🍒","💎","🔔","🍋","⭐","7️⃣"];
+
+    let r1 = document.getElementById("r1");
+    let r2 = document.getElementById("r2");
+    let r3 = document.getElementById("r3");
+
+    r1.classList.add("spin");
+    r2.classList.add("spin");
+    r3.classList.add("spin");
+
+    let interval = setInterval(() => {
+        r1.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+        r2.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+        r3.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+    }, 80);
+
+    setTimeout(() => {
+        clearInterval(interval);
+        r1.classList.remove("spin");
+        r2.classList.remove("spin");
+        r3.classList.remove("spin");
+
+        showWin();
+    }, 2200);
+}
+
+function showWin() {
+    document.getElementById("popup").style.display = "block";
+
+    for(let i=0;i<40;i++){
+        let c=document.createElement("div");
+        c.className="confetti";
+        c.style.left=Math.random()*100+"vw";
+        c.style.background=["#ffcc00","#ff0066","#00c3ff"][Math.floor(Math.random()*3)];
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),2000);
+    }
+
+    setTimeout(()=>{
+        document.getElementById("popup").style.display="none";
+    },2500);
+}
+</script>
+
+</body>
+</html>
